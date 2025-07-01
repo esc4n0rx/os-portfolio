@@ -1,3 +1,4 @@
+// components/window-content.tsx
 "use client"
 
 import type React from "react"
@@ -12,6 +13,7 @@ import { motion } from "framer-motion"
 import { useWindowStore } from "@/store/window-store"
 import ProjectFolder from "@/components/project-folder"
 import ProjectDocument from "@/components/project-document"
+import Calculator from "@/components/calculator"
 import type { Project } from "@/types/project"
 
 interface WindowContentProps {
@@ -53,6 +55,9 @@ export default function WindowContent({ windowId }: WindowContentProps) {
 
   const renderContent = () => {
     switch (windowId) {
+      case "calculator":
+        return <Calculator />
+
       case "projects":
         // Verificar se estamos visualizando um projeto específico
         if (currentWindow?.data?.view === 'project' && currentWindow?.data?.project) {
