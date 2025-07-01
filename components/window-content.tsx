@@ -9,56 +9,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
+import { useWindowStore } from "@/store/window-store"
+import ProjectFolder from "@/components/project-folder"
+import ProjectDocument from "@/components/project-document"
+import type { Project } from "@/types/project"
 
 interface WindowContentProps {
   windowId: string
 }
 
 export default function WindowContent({ windowId }: WindowContentProps) {
+  const { windows, updateWindow } = useWindowStore()
+  const currentWindow = windows.find(w => w.id === windowId)
   const [emailForm, setEmailForm] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   })
-
-  const projects = [
-    {
-      id: "ecommerce",
-      name: "E-commerce Platform",
-      type: "folder",
-      description: "Plataforma completa de e-commerce",
-      tech: ["Next.js", "TypeScript", "Stripe"],
-      icon: Folder,
-      color: "text-yellow-500",
-    },
-    {
-      id: "taskmanager",
-      name: "Task Management App",
-      type: "folder",
-      description: "App de gerenciamento de tarefas",
-      tech: ["React", "Node.js", "MongoDB"],
-      icon: Folder,
-      color: "text-blue-500",
-    },
-    {
-      id: "portfolio",
-      name: "Portfolio OS",
-      type: "folder",
-      description: "Portfólio em formato de OS",
-      tech: ["Next.js", "Framer Motion", "Zustand"],
-      icon: Folder,
-      color: "text-green-500",
-    },
-    {
-      id: "readme",
-      name: "README.md",
-      type: "file",
-      description: "Documentação dos projetos",
-      icon: FileText,
-      color: "text-gray-400",
-    },
-  ]
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -67,67 +35,36 @@ export default function WindowContent({ windowId }: WindowContentProps) {
     setEmailForm({ name: "", email: "", subject: "", message: "" })
   }
 
+  const handleNavigateToProject = (project: Project) => {
+    // Atualizar dados da janela para mostrar o projeto específico
+    updateWindow(windowId, {
+      title: project.name,
+      data: { view: 'project', project }
+    })
+  }
+
+  const handleBackToProjects = () => {
+    // Voltar para a visualização de pastas
+    updateWindow(windowId, {
+      title: 'Projetos',
+      data: { view: 'folder' }
+    })
+  }
+
   const renderContent = () => {
     switch (windowId) {
       case "projects":
-        return (
-          <div className="p-6 bg-white min-h-full">
-            <div className="flex items-center mb-6 pb-4 border-b">
-              <Folder className="text-yellow-500 mr-3" size={24} />
-              <div>
-                <h2 className="text-xl font-semibold">Meus Projetos</h2>
-                <p className="text-gray-500 text-sm">Pasta contendo todos os projetos desenvolvidos</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-4 gap-4">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 cursor-pointer group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <project.icon
-                    size={48}
-                    className={`${project.color} mb-3 group-hover:scale-110 transition-transform`}
-                  />
-                  <span className="text-sm font-medium text-center mb-1">{project.name}</span>
-                  <span className="text-xs text-gray-500 text-center">{project.description}</span>
-                  {project.tech && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {project.tech.slice(0, 2).map((tech) => (
-                        <span key={tech} className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold mb-2 flex items-center">
-                <ExternalLink size={16} className="mr-2" />
-                Links Rápidos
-              </h3>
-              <div className="flex space-x-4">
-                <Button size="sm" variant="outline">
-                  <Github size={14} className="mr-2" />
-                  GitHub
-                </Button>
-                <Button size="sm" variant="outline">
-                  <ExternalLink size={14} className="mr-2" />
-                  Demo Live
-                </Button>
-              </div>
-            </div>
-          </div>
-        )
+        // Verificar se estamos visualizando um projeto específico
+        if (currentWindow?.data?.view === 'project' && currentWindow?.data?.project) {
+          return (
+            <ProjectDocument
+              project={currentWindow.data.project}
+              onBack={handleBackToProjects}
+            />
+          )
+        }
+        // Visualização padrão da pasta de projetos
+        return <ProjectFolder onNavigateToProject={handleNavigateToProject} />
 
       case "about":
         return (
@@ -193,7 +130,7 @@ export default function WindowContent({ windowId }: WindowContentProps) {
                 <div className="pl-4">
                   - Node.js
                   <br />- Express.js
-                  <br />- PostgreSQL / MongoDB
+                  <br />- PostgreSQL
                   <br />- Prisma ORM
                 </div>
 

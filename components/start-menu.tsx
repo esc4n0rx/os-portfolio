@@ -12,13 +12,13 @@ import {
   Power,
   Settings,
   Search,
-  Grid3X3,
+  Grid3x3,
   Calendar,
   Calculator,
   Camera,
   Music,
-  ImageIcon,
   Globe,
+  Image,
 } from "lucide-react"
 
 export default function StartMenu() {
@@ -32,8 +32,8 @@ export default function StartMenu() {
     { id: "calculator", label: "Calculadora", icon: Calculator, color: "bg-gray-700" },
     { id: "calendar", label: "Calendário", icon: Calendar, color: "bg-blue-600" },
     { id: "camera", label: "Câmera", icon: Camera, color: "bg-purple-500" },
-    { id: "music", label: "Música", icon: Music, color: "bg-orange-500" },
-    { id: "photos", label: "Fotos", icon: ImageIcon, color: "bg-pink-500" },
+    { id: "photos", label: "Fotos", icon: Image, color: "bg-pink-500" },
+    { id: "photos", label: "Fotos", icon: Image, color: "bg-pink-500" },
     { id: "browser", label: "Navegador", icon: Globe, color: "bg-indigo-500" },
   ]
 
@@ -81,7 +81,7 @@ export default function StartMenu() {
               Documentos
             </Button>
             <Button variant="ghost" className="w-full justify-start text-white hover:bg-gray-700/50 text-sm">
-              <ImageIcon size={16} className="mr-3" />
+              <Image size={16} className="mr-3" />
               Imagens
             </Button>
             <Button variant="ghost" className="w-full justify-start text-white hover:bg-gray-700/50 text-sm">
@@ -109,7 +109,7 @@ export default function StartMenu() {
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-white font-medium">Fixados</h3>
               <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white">
-                <Grid3X3 size={16} />
+                <Grid3x3 size={16} />
               </Button>
             </div>
             <div className="grid grid-cols-6 gap-3">

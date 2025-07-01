@@ -9,12 +9,13 @@ interface WindowState {
   isMinimized: boolean
   position: { x: number; y: number }
   size: { width: number; height: number }
+  data?: any // Para dados específicos da janela (como projeto selecionado)
 }
 
 interface WindowStore {
   windows: WindowState[]
   isStartMenuOpen: boolean
-  openWindow: (id: string, title: string) => void
+  openWindow: (id: string, title: string, data?: any) => void
   closeWindow: (id: string) => void
   minimizeWindow: (id: string) => void
   focusWindow: (id: string) => void
@@ -26,19 +27,20 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
   windows: [],
   isStartMenuOpen: false,
 
-  openWindow: (id: string, title: string) => {
-    console.log("Opening window:", id, title) // Debug log
+  openWindow: (id: string, title: string, data?: any) => {
+    console.log("Opening window:", id, title, data) // Debug log
     const { windows } = get()
     const existingWindow = windows.find((w) => w.id === id)
 
     if (existingWindow) {
       console.log("Window exists, focusing:", id) // Debug log
-      // Focus existing window
+      // Focus existing window and update data if provided
       set({
         windows: windows.map((w) => ({
           ...w,
           isActive: w.id === id,
           isMinimized: w.id === id ? false : w.isMinimized,
+          data: w.id === id && data ? data : w.data,
         })),
       })
     } else {
@@ -54,6 +56,7 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
           y: 100 + windows.length * 30,
         },
         size: { width: 700, height: 600 }, // Aumentado o tamanho padrão
+        data,
       }
 
       set({
