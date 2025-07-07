@@ -31,13 +31,10 @@ export default function StartMenu() {
     { id: "resume", label: "Currículo", icon: FileText, color: "bg-red-500" },
     { id: "calculator", label: "Calculadora", icon: Calculator, color: "bg-gray-700" },
     { id: "calendar", label: "Calendário", icon: Calendar, color: "bg-blue-600" },
-    { id: "camera", label: "Câmera", icon: Camera, color: "bg-purple-500" },
-    { id: "photos", label: "Fotos", icon: Image, color: "bg-pink-500" },
-    { id: "photos", label: "Fotos", icon: Image, color: "bg-pink-500" },
-    { id: "browser", label: "Navegador", icon: Globe, color: "bg-indigo-500" },
+    { id: "Music", label: "Música", icon: Music, color: "bg-purple-500" },
   ]
 
-  const recentFiles = ["Projeto_Portfolio.docx", "Curriculo_2024.pdf", "Apresentacao_Cliente.pptx", "Codigo_React.js"]
+  const recentFiles = ["Projeto_Portfolio.docx", "Curriculo_2024.pdf", "Apresentacao_Cliente.pptx"]
 
   const handleItemClick = (id: string, label: string) => {
     openWindow(id, label)
