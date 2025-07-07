@@ -45,7 +45,7 @@ export default function LoginScreen({ onLoginComplete }: LoginScreenProps) {
           <User size={64} className="text-white" />
         </motion.div>
 
-        <h2 className="text-3xl font-light mb-2">Desenvolvedor</h2>
+        <h2 className="text-3xl font-light mb-2">Paulo Oliveira</h2>
         <p className="text-lg text-gray-300 mb-8">Bem-vindo ao meu portfólio</p>
 
         {isLoggingIn ? (

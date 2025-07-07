@@ -131,10 +131,10 @@ export default function BootScreen() {
             animate={{ color: ["#22c55e", "#10b981", "#059669", "#22c55e"] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           >
-            Portfolio OS
+            Oliveira OS
           </motion.span>
         </h1>
-        <p className="text-green-300">Versão 2024.1.0</p>
+        <p className="text-green-300">Versão 2025.1.0</p>
       </motion.div>
 
       {/* Terminal de boot */}
@@ -211,7 +211,7 @@ export default function BootScreen() {
         <div>CPU: Intel Core i7-12700K @ 3.60GHz</div>
         <div>RAM: 16GB DDR4</div>
         <div>GPU: NVIDIA GeForce RTX 3070</div>
-        <div>Build: 2024.01.15-dev</div>
+        <div>Build: 2025.01.15-dev</div>
       </motion.div>
 
       {/* Versão no canto */}
@@ -221,7 +221,7 @@ export default function BootScreen() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
-        Portfolio OS v2024.1.0
+        Oliveira  OS v2025.1.0
         <br />
         Desenvolvido com ❤️
       </motion.div>
