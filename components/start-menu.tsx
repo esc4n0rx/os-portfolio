@@ -31,7 +31,7 @@ export default function StartMenu() {
     { id: "resume", label: "Currículo", icon: FileText, color: "bg-red-500" },
     { id: "calculator", label: "Calculadora", icon: Calculator, color: "bg-gray-700" },
     { id: "calendar", label: "Calendário", icon: Calendar, color: "bg-blue-600" },
-    { id: "Music", label: "Música", icon: Music, color: "bg-purple-500" },
+    { id: "music", label: "Música", icon: Music, color: "bg-purple-500" },
   ]
 
   const recentFiles = ["Projeto_Portfolio.docx", "Curriculo_2024.pdf", "Apresentacao_Cliente.pptx"]

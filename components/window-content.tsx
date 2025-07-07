@@ -14,6 +14,7 @@ import ProjectFolder from "@/components/project-folder"
 import ProjectDocument from "@/components/project-document"
 import Calculator from "@/components/calculator"
 import Calendar from "@/components/calendar"
+import MusicPlayer from "@/components/music-player"
 import type { Project } from "@/types/project"
 
 interface WindowContentProps {
@@ -32,13 +33,11 @@ export default function WindowContent({ windowId }: WindowContentProps) {
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Simular envio de email
     alert("Email enviado com sucesso! (Simulação)")
     setEmailForm({ name: "", email: "", subject: "", message: "" })
   }
 
   const handleNavigateToProject = (project: Project) => {
-    // Atualizar dados da janela para mostrar o projeto específico
     updateWindow(windowId, {
       title: project.name,
       data: { view: 'project', project }
@@ -61,8 +60,10 @@ export default function WindowContent({ windowId }: WindowContentProps) {
       case "calendar":
         return <Calendar />
 
+      case "music":
+        return <MusicPlayer />
+
       case "projects":
-        // Verificar se estamos visualizando um projeto específico
         if (currentWindow?.data?.view === 'project' && currentWindow?.data?.project) {
           return (
             <ProjectDocument
@@ -71,7 +72,6 @@ export default function WindowContent({ windowId }: WindowContentProps) {
             />
           )
         }
-        // Visualização padrão da pasta de projetos
         return <ProjectFolder onNavigateToProject={handleNavigateToProject} />
 
       case "about":
@@ -92,7 +92,7 @@ export default function WindowContent({ windowId }: WindowContentProps) {
                <br />
                <span className="text-green-600">Localização:</span> Brasil
                <br />
-               <span className="text-green-600">Experiência:</span> 3+ anos
+               <span className="text-green-600">Experiência:</span> 4+ anos
                <br />
                <span className="text-green-600">Status:</span> Disponível para projetos
              </div>
@@ -256,7 +256,7 @@ export default function WindowContent({ windowId }: WindowContentProps) {
 
                <Button variant="outline" className="w-full justify-start bg-transparent">
                  <Mail className="mr-2" size={16} />
-                 seu.email@exemplo.com
+                 contato.paulooliver9@gmail.com
                </Button>
              </div>
            </div>
@@ -278,7 +278,7 @@ export default function WindowContent({ windowId }: WindowContentProps) {
              <div className="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
                <div className="text-center">
                  <FileText size={48} className="text-red-500 mx-auto mb-4" />
-                 <h3 className="text-lg font-semibold mb-2">Currículo_Desenvolvedor_2024.pdf</h3>
+                 <h3 className="text-lg font-semibold mb-2">Currículo_Desenvolvedor_2025.pdf</h3>
                  <p className="text-gray-600 mb-4">Clique no botão abaixo para baixar meu currículo completo</p>
 
                  <Button size="lg" className="mb-4">
@@ -326,16 +326,11 @@ export default function WindowContent({ windowId }: WindowContentProps) {
                <CardContent>
                  <div className="space-y-4">
                    <div>
-                     <h4 className="font-semibold">Desenvolvedor Full-Stack Senior</h4>
-                     <p className="text-sm text-gray-600">TechCorp • 2022 - Presente</p>
+                     <h4 className="font-semibold">Analista de Melhoria Continua</h4>
+                     <p className="text-sm text-gray-600">Americanas SA  • 2024 - Presente</p>
                      <p className="text-sm mt-1">
-                       Desenvolvimento de aplicações web escaláveis usando React, Next.js e Node.js
+                       Desenvolvimento de soluções para otimização de processos internos e redução de custos
                      </p>
-                   </div>
-                   <div>
-                     <h4 className="font-semibold">Desenvolvedor Frontend</h4>
-                     <p className="text-sm text-gray-600">StartupXYZ • 2021 - 2022</p>
-                     <p className="text-sm mt-1">Criação de interfaces responsivas e otimização de performance</p>
                    </div>
                  </div>
                </CardContent>
