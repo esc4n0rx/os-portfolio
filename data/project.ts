@@ -2,236 +2,272 @@ import { Project } from '@/types/project'
 
 export const projectsData: Project[] = [
   {
-    id: "ecommerce",
-    name: "E-commerce Platform",
-    description: "Plataforma completa de e-commerce",
-    tech: ["Next.js", "TypeScript", "Stripe", "Prisma"],
+    id: "poupadin",
+    name: "PoupaDin",
+    description: "App em React Native para gerenciamento de finanças",
+    tech: ["React Native", "TypeScript", "Firebase"],
     type: "folder",
-    icon: "🛒",
-    color: "text-blue-500",
+    icon: "💰",
+    color: "text-green-500",
     content: {
       overview: `
-Este projeto é uma plataforma completa de e-commerce desenvolvida com as mais modernas tecnologias web. 
-O objetivo foi criar uma experiência de compra fluida e segura, com foco na performance e usabilidade.
-
-A aplicação permite que usuários naveguem por produtos, adicionem itens ao carrinho, 
-realizem pagamentos seguros e acompanhem seus pedidos em tempo real.
+O PoupaDin é um aplicativo móvel multiplataforma, construído com React Native, projetado para ajudar usuários a assumirem o controle de suas vidas financeiras. O app permite a criação de orçamentos personalizados, o rastreamento detalhado de despesas e receitas, e o planejamento de metas de economia, tudo em uma interface intuitiva e amigável.
       `,
       features: [
-        "Catálogo de produtos com filtros avançados",
-        "Carrinho de compras persistente",
-        "Sistema de pagamento integrado com Stripe",
-        "Painel administrativo para gestão de produtos",
-        "Sistema de autenticação e autorização",
-        "Notificações em tempo real",
-        "Design responsivo e otimizado",
-        "SEO otimizado para produtos"
+        "Criação de orçamento mensal personalizado",
+        "Registro rápido de despesas e receitas",
+        "Categorização automática de gastos",
+        "Definição e acompanhamento de metas de economia",
+        "Gráficos e relatórios visuais sobre a saúde financeira",
+        "Notificações para lembrar de contas a pagar",
+        "Sincronização de dados na nuvem com Firebase"
       ],
       challenges: [
-        "Implementação de pagamentos seguros com webhooks do Stripe",
-        "Otimização de performance para catálogos grandes",
-        "Gerenciamento de estado complexo do carrinho",
-        "Implementação de filtros dinâmicos sem reload da página",
-        "Sincronização de estoque em tempo real"
+        "Garantir a segurança dos dados financeiros do usuário",
+        "Criar uma experiência de usuário fluida e rápida em diferentes dispositivos",
+        "Implementar gráficos interativos e performáticos para visualização de dados",
+        "Gerenciar o estado global da aplicação de forma eficiente",
+        "Configurar a sincronização de dados em tempo real com o Firebase Firestore"
       ],
       technologies: [
         {
-          name: "Next.js 14",
-          description: "Framework React com App Router para renderização server-side",
+          name: "React Native",
+          description: "Framework para desenvolvimento de apps móveis nativos com JavaScript",
           category: "frontend"
         },
         {
           name: "TypeScript",
-          description: "Tipagem estática para maior segurança e produtividade",
+          description: "Superset do JavaScript que adiciona tipagem estática",
+          category: "language"
+        },
+        {
+          name: "Expo",
+          description: "Plataforma e conjunto de ferramentas para facilitar o desenvolvimento com React Native",
+          category: "tools"
+        },
+        {
+          name: "Firebase (Firestore & Authentication)",
+          description: "Plataforma BaaS (Backend as a Service) para autenticação e banco de dados NoSQL em tempo real",
+          category: "backend"
+        },
+        {
+          name: "Zustand",
+          description: "Gerenciador de estado simples e poderoso para React",
+          category: "frontend"
+        }
+      ],
+      demo: "https://link-para-o-app-na-loja.com",
+      github: "https://github.com/seu-usuario/poupadin",
+      learnings: [
+        "Desenvolvimento de aplicações móveis multiplataforma com React Native",
+        "Uso do Firebase como um backend completo para autenticação e banco de dados",
+        "Gerenciamento de estado complexo em aplicações móveis",
+        "Publicação de aplicativos nas lojas (Google Play Store e Apple App Store)",
+        "Criação de interfaces de usuário responsivas para diversos tamanhos de tela"
+      ]
+    }
+  },
+  {
+    id: "gtracker",
+    name: "Gtracker",
+    description: "Web Fórum em Next.js para conteúdo privado",
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    type: "folder",
+    icon: "🌐",
+    color: "text-blue-500",
+    content: {
+      overview: `
+O Gtracker é uma plataforma web exclusiva, desenvolvida com Next.js, que funciona como um fórum para gerenciamento e discussão de conteúdos privados. O sistema foi projetado para comunidades que precisam de um espaço seguro para compartilhar conhecimento, com controle de acesso baseado em papéis e um sistema de tópicos e postagens bem estruturado.
+      `,
+      features: [
+        "Autenticação segura de usuários e gerenciamento de perfis",
+        "Criação de tópicos e postagens com editor de texto rico (Markdown)",
+        "Sistema de comentários e respostas aninhadas",
+        "Controle de acesso a conteúdos baseado em permissões de usuário",
+        "Busca avançada por tópicos e conteúdos",
+        "Design responsivo otimizado para desktop e mobile"
+      ],
+      challenges: [
+        "Implementar um sistema de autorização robusto para proteger o conteúdo privado",
+        "Estruturar o banco de dados com Prisma para suportar relações complexas (usuários, tópicos, posts)",
+        "Otimizar a renderização de longas listas de discussão no lado do servidor (SSR)",
+        "Garantir a segurança contra ataques comuns em aplicações web (XSS, CSRF)",
+        "Desenvolver uma experiência de usuário intuitiva para a navegação no fórum"
+      ],
+      technologies: [
+        {
+          name: "Next.js 14",
+          description: "Framework React com renderização Server-Side (SSR) e Static Site Generation (SSG)",
           category: "frontend"
         },
         {
-          name: "Tailwind CSS",
-          description: "Framework CSS utilitário para design consistente",
-          category: "frontend"
+          name: "TypeScript",
+          description: "Tipagem estática para um código mais robusto e seguro",
+          category: "language"
         },
         {
           name: "Prisma",
-          description: "ORM moderno para interação com banco de dados",
+          description: "ORM (Object-Relational Mapping) de última geração para Node.js e TypeScript",
           category: "database"
         },
         {
           name: "PostgreSQL",
-          description: "Banco de dados relacional para dados estruturados",
+          description: "Banco de dados relacional poderoso e de código aberto",
           category: "database"
         },
         {
-          name: "Stripe",
-          description: "Plataforma de pagamentos online",
-          category: "backend"
-        },
-        {
-          name: "Vercel",
-          description: "Plataforma de deploy otimizada para Next.js",
-          category: "deployment"
-        }
-      ],
-      demo: "https://ecommerce-demo.vercel.app",
-      github: "https://github.com/usuario/ecommerce-platform",
-      learnings: [
-        "Domínio completo do ecossistema Next.js 14 com App Router",
-        "Implementação de sistemas de pagamento seguros",
-        "Otimização de performance em aplicações React",
-        "Gerenciamento de estado complexo com Zustand",
-        "Práticas de SEO para e-commerce"
-      ]
-    }
-  },
-  {
-    id: "taskmanager",
-    name: "Task Management App",
-    description: "App de gerenciamento de tarefas colaborativo",
-    tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-    type: "folder",
-    icon: "📋",
-    color: "text-green-500",
-    content: {
-      overview: `
-Aplicação de gerenciamento de tarefas colaborativo inspirada em ferramentas como Trello e Asana. 
-O foco foi criar uma interface intuitiva para equipes organizarem seus projetos e acompanharem 
-o progresso em tempo real.
-
-A aplicação oferece funcionalidades de kanban board, chat em tempo real, 
-notificações push e relatórios de produtividade.
-      `,
-      features: [
-        "Kanban board com drag & drop",
-        "Colaboração em tempo real",
-        "Sistema de comentários nas tarefas",
-        "Notificações push",
-        "Relatórios de produtividade",
-        "Filtros e busca avançada",
-        "Calendário integrado",
-        "Anexos em tarefas"
-      ],
-      challenges: [
-        "Sincronização em tempo real entre múltiplos usuários",
-        "Implementação de drag & drop performático",
-        "Gerenciamento de permissões de acesso",
-        "Otimização de queries no MongoDB",
-        "Implementação de notificações push"
-      ],
-      technologies: [
-        {
-          name: "React 18",
-          description: "Biblioteca para construção de interfaces de usuário",
+          name: "Tailwind CSS",
+          description: "Framework CSS utility-first para criação rápida de interfaces",
           category: "frontend"
         },
         {
-          name: "Node.js",
-          description: "Runtime JavaScript server-side",
-          category: "backend"
-        },
-        {
-          name: "Express.js",
-          description: "Framework web minimalista para Node.js",
-          category: "backend"
-        },
-        {
-          name: "MongoDB",
-          description: "Banco de dados NoSQL orientado a documentos",
-          category: "database"
-        },
-        {
-          name: "Socket.io",
-          description: "Biblioteca para comunicação em tempo real",
-          category: "backend"
-        },
-        {
-          name: "JWT",
-          description: "Tokens para autenticação segura",
+          name: "NextAuth.js",
+          description: "Biblioteca para simplificar a autenticação em projetos Next.js",
           category: "backend"
         }
       ],
-      demo: "https://taskmanager-demo.netlify.app",
-      github: "https://github.com/usuario/task-manager",
+      demo: "https://gtracker-demo.vercel.app",
+      github: "https://github.com/seu-usuario/gtracker",
       learnings: [
-        "Desenvolvimento full-stack com JavaScript",
-        "Implementação de funcionalidades em tempo real",
-        "Gerenciamento de estado complexo em React",
-        "Otimização de performance em aplicações colaborativas",
-        "Padrões de arquitetura escalável"
+        "Desenvolvimento full-stack com a stack T3 (Next.js, TypeScript, Tailwind, Prisma)",
+        "Modelagem de dados complexos e gerenciamento de migrações com Prisma",
+        "Implementação de autenticação e autorização seguras em aplicações web",
+        "Otimização de performance com estratégias de renderização do Next.js (SSR, ISR)",
+        "Criação de APIs internas no Next.js para comunicação com o frontend"
       ]
     }
   },
   {
-    id: "portfolio",
+    id: "wally",
+    name: "Wally",
+    description: "PWA para download de wallpapers 4K sem anúncios",
+    tech: ["React", "PWA", "Firebase"],
+    type: "folder",
+    icon: "🖼️",
+    color: "text-red-500",
+    content: {
+      overview: `
+Wally é um Progressive Web App (PWA) criado para oferecer uma experiência limpa e focada no download de wallpapers de alta resolução (4K). O grande diferencial do projeto é ser totalmente livre de anúncios, proporcionando uma navegação fluida e agradável. Os usuários podem instalar o app em seus dispositivos para acesso rápido e offline.
+      `,
+      features: [
+        "Galeria de wallpapers em alta resolução (4K)",
+        "Interface limpa, rápida e sem anúncios",
+        "Funcionalidades de Progressive Web App (PWA) para instalação no dispositivo",
+        "Busca e sistema de categorias para encontrar wallpapers",
+        "Download direto com um clique",
+        "Modo offline para visualizar imagens já carregadas"
+      ],
+      challenges: [
+        "Otimizar o carregamento e a exibição de imagens de alta resolução sem comprometer a performance",
+        "Implementar a funcionalidade de Service Worker para o PWA funcionar offline",
+        "Gerenciar o armazenamento em cache de forma eficiente para economizar dados do usuário",
+        "Criar uma interface que seja igualmente funcional em telas de celular, tablet e desktop",
+        "Integrar com uma API de imagens ou gerenciar o armazenamento próprio (ex: Firebase Storage)"
+      ],
+      technologies: [
+        {
+          name: "React",
+          description: "Biblioteca JavaScript para construir interfaces de usuário",
+          category: "frontend"
+        },
+        {
+          name: "PWA (Progressive Web App)",
+          description: "Conjunto de tecnologias (Service Workers, Manifest) para criar apps web instaláveis",
+          category: "frontend"
+        },
+        {
+          name: "Firebase Storage",
+          description: "Serviço para armazenamento e gerenciamento de arquivos na nuvem",
+          category: "backend"
+        },
+        {
+          name: "CSS Modules",
+          description: "Estilização com escopo local para componentes React",
+          category: "frontend"
+        },
+        {
+            name: "Vite",
+            description: "Ferramenta de build extremamente rápida para desenvolvimento web moderno",
+            category: "tools"
+        }
+      ],
+      demo: "https://wally-pwa-demo.netlify.app",
+      github: "https://github.com/seu-usuario/wally-pwa",
+      learnings: [
+        "Construção e configuração de um Progressive Web App (PWA) do zero",
+        "Uso avançado de Service Workers para caching e funcionalidades offline",
+        "Técnicas de otimização de performance para aplicações com muitas imagens (Lazy Loading)",
+        "Publicação de um PWA e promoção da sua instalação",
+        "Consumo e gerenciamento de arquivos de um serviço de armazenamento em nuvem"
+      ]
+    }
+  },
+  {
+    id: "portfolio-os",
     name: "Portfolio OS",
-    description: "Portfólio em formato de sistema operacional",
-    tech: ["Next.js", "Framer Motion", "Zustand", "Tailwind"],
+    description: "Portfólio interativo que simula um sistema operacional",
+    tech: ["Next.js", "Framer Motion", "Zustand"],
     type: "folder",
     icon: "💻",
     color: "text-purple-500",
     content: {
       overview: `
-Este é o projeto atual que você está visualizando! Um portfólio único que simula 
-um sistema operacional completo, incluindo boot screen, login, desktop com ícones, 
-janelas arrastáveis e um menu iniciar funcional.
-
-O objetivo foi criar uma experiência imersiva e interativa que demonstrasse 
-habilidades técnicas de forma criativa e memorável.
+Este projeto é uma abordagem criativa e técnica para um portfólio pessoal. Ele simula a interface de um sistema operacional desktop, onde cada "programa" ou "arquivo" aberto em uma janela representa um projeto, uma habilidade ou uma informação sobre mim. O objetivo é criar uma experiência imersiva e memorável para o visitante, demonstrando proficiência em desenvolvimento de interfaces complexas e animações.
       `,
       features: [
-        "Simulação completa de boot do sistema",
-        "Tela de login animada",
-        "Desktop interativo com ícones",
-        "Sistema de janelas arrastáveis",
-        "Menu iniciar funcional",
-        "Taskbar com relógio",
-        "Animações fluidas",
-        "Gerenciamento de estado de janelas"
+        "Interface de desktop com ícones arrastáveis",
+        "Sistema de janelas que podem ser abertas, fechadas, minimizadas e arrastadas",
+        "Menu 'Iniciar' para navegação entre as seções (projetos, sobre, contato)",
+        "Barra de tarefas com janelas ativas e relógio funcional",
+        "Animações fluidas e performáticas com Framer Motion",
+        "Design responsivo que se adapta para uma experiência 'mobile OS'"
       ],
       challenges: [
-        "Criação de um sistema de janelas complexo",
-        "Animações performáticas com Framer Motion",
-        "Gerenciamento de estado de múltiplas janelas",
-        "Design system consistente",
-        "Otimização para diferentes dispositivos"
+        "Desenvolver um sistema de gerenciamento de janelas (window manager) do zero",
+        "Orquestrar animações complexas com Framer Motion de forma performática",
+        "Gerenciar o estado global das janelas (posição, tamanho, estado) com Zustand",
+        "Garantir a acessibilidade em uma interface não convencional",
+        "Criar uma lógica para sobreposição e foco de janelas (z-index)"
       ],
       technologies: [
         {
           name: "Next.js 14",
-          description: "Framework React com App Router",
+          description: "Framework React para renderização otimizada e estrutura de projeto",
           category: "frontend"
         },
         {
           name: "Framer Motion",
-          description: "Biblioteca de animações para React",
+          description: "Biblioteca de animação poderosa e declarativa para React",
           category: "frontend"
         },
         {
           name: "Zustand",
-          description: "Gerenciamento de estado leve e flexível",
+          description: "Gerenciador de estado minimalista para React, ideal para gerenciar o estado das janelas",
           category: "frontend"
         },
         {
           name: "Tailwind CSS",
-          description: "Framework CSS utilitário",
+          description: "Framework CSS utility-first para estilização rápida e consistente",
           category: "frontend"
         },
         {
           name: "TypeScript",
-          description: "Superset tipado do JavaScript",
-          category: "frontend"
+          description: "Adiciona tipagem estática ao JavaScript para maior segurança no código",
+          category: "language"
         },
         {
           name: "Lucide React",
-          description: "Biblioteca de ícones moderna",
+          description: "Biblioteca de ícones SVG leves e customizáveis",
           category: "tools"
         }
       ],
-      github: "https://github.com/usuario/portfolio-os",
+      github: "https://github.com/seu-usuario/portfolio-os",
       learnings: [
-        "Criação de interfaces complexas e interativas",
-        "Domínio avançado do Framer Motion",
-        "Padrões de design de sistemas operacionais",
-        "Otimização de performance em animações",
-        "Arquitetura de componentes escalável"
+        "Domínio avançado de animações em React com Framer Motion",
+        "Criação de interfaces de usuário complexas e altamente interativas (arrastar e soltar, redimensionar)",
+        "Arquitetura de componentes para aplicações de grande escala e interatividade",
+        "Gerenciamento de estado complexo e não-linear com Zustand",
+        "Aplicação de princípios de design de UI/UX de sistemas operacionais"
       ]
     }
   }

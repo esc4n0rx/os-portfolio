@@ -23,5 +23,5 @@ export interface ProjectContent {
 export interface TechDetail {
   name: string
   description: string
-  category: 'frontend' | 'backend' | 'database' | 'tools' | 'deployment'
+  category: 'frontend' | 'backend' | 'database' | 'tools' | 'deployment' |'language'
 }
